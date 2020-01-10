@@ -77,6 +77,7 @@ brocade_fastiron_show_monitor.textfsm, .*, brocade_fastiron, sh[[ow]] mo[[nitor]
 brocade_fastiron_show_version.textfsm, .*, brocade_fastiron, sh[[ow]] ve[[rsion]]
 brocade_fastiron_show_metro.textfsm, .*, brocade_fastiron, sh[[ow]] met[[ro-ring]]
 brocade_fastiron_show_trunk.textfsm, .*, brocade_fastiron, sh[[ow]] tru[[nk]]
+brocade_fastiron_show_flash.textfsm, .*, brocade_fastiron, sh[[ow]] fl[[ash]]
 brocade_fastiron_show_span.textfsm, .*, brocade_fastiron, sh[[ow]] sp[[an]]
 brocade_fastiron_show_topo.textfsm, .*, brocade_fastiron, sh[[ow]] to[[pology-group]]
 brocade_fastiron_show_arp.textfsm, .*, brocade_fastiron, sh[[ow]] a[[rp]]
@@ -129,6 +130,7 @@ cisco_asa_show_route.textfsm, .*, cisco_asa, sh[[ow]] ro[[ute]]
 cisco_asa_show_xlate.textfsm, .*, cisco_asa, sh[[ow]] x[[late]]
 cisco_asa_show_name.textfsm, .*, cisco_asa, sh[[ow]] nam[[e]]
 cisco_asa_show_nat.textfsm, .*, cisco_asa, sh[[ow]] nat
+cisco_asa_show_ip.textfsm, .*, cisco_asa, sh[[ow]] ip
 cisco_asa_dir.textfsm, .*, cisco_asa, dir
 
 cisco_ios_show_switch_detail.textfsm:cisco_ios_show_switch_detail_stack_ports.textfsm, .*, cisco_ios, sh[[ow]] sw[[itch]] d[[etail]]
@@ -346,6 +348,8 @@ paloalto_panos_show_arp_all.textfsm, .*, paloalto_panos, sh[[ow]] ar[[p]] all
 paloalto_panos_show_mac_all.textfsm, .*, paloalto_panos, sh[[ow]] mac all
 
 ruckus_fastiron_show_arp.textfsm, .*, ruckus_fastiron, sh[[ow]] ar[[p]]
+
+sophos_xg_system_diagnostics_show_version-info.textfsm, .*, sophos_xg, sys[[tem]] dia[[gnostics]] sh[[ow]] ve[[rsion-info]]
 
 ubiquiti_edgeswitch_show_vlan.textfsm, .*, ubiquiti_edgeswitch, sh[[ow]] vl[[an]]
 ubiquiti_edgeswitch_show_arp.textfsm, .*, ubiquiti_edgeswitch, sh[[ow]] ar[[p]]

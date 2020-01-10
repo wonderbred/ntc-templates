@@ -1,0 +1,18 @@
+Value SWITCH_IP (\S+)
+Value SUBNET_MASK (\S+)
+Value ROUTER (\S+)
+Value TFTP_SERVER (\S+)
+Value CONFIG_FILENAME (\S+)
+Value IMAGE_FILENAME (\S+)
+Value DNS_SERVER (\S+)
+Value MTU (\d+)
+
+Start
+  ^\s*Switch IP address: ${SWITCH_IP}
+  ^\s*Subnet mask: ${SUBNET_MASK}
+  ^\s*Default router address: ${ROUTER}
+  ^\s*TFTP server address: ${TFTP_SERVER}
+  ^\s*Configuration filename: ${CONFIG_FILENAME}
+  ^\s*Image filename: ${IMAGE_FILENAME}
+  ^\s*DNS Server: ${DNS_SERVER}
+  ^\s*IP MTU: ${MTU}

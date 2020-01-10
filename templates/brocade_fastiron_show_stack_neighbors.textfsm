@@ -1,0 +1,7 @@
+Value Key STACK_UNIT (\d+)
+
+Start
+  ^U#\s+Stack-port1\s+ -> Units
+
+Units
+  ^${STACK_UNIT}\s+ -> Record

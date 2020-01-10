@@ -1,0 +1,20 @@
+Value Key STACK_UNIT (\d+)
+Value PRIMARY_VER (.+?)
+Value PRIMARY_BIN (.+\.bin)
+Value SECONDARY_VER (.+?)
+Value SECONDARY_BIN (.+\.bin)
+Value BOOTROM_VER (.+?)
+
+Start
+  ^Stack\sunit\s${STACK_UNIT}: -> GetPri
+
+GetPri
+  ^.*Pri\sCode.*,\sVersion:${PRIMARY_VER}\s\(${PRIMARY_BIN}\) -> GetSec
+  ^.*Pri\sCode\sFlash\sEmpty -> GetSec
+
+GetSec
+  ^.*Sec\sCode.*,\sVersion:${SECONDARY_VER}\s\(${SECONDARY_BIN}\) -> GetBoot
+  ^.*Sec\sCode\sFlash\sEmpty -> GetBoot
+
+GetBoot
+  ^.*Boot-Monitor.*,\sVersion:${BOOTROM_VER}$$ -> Record Start

@@ -1,0 +1,11 @@
+Value INTERFACE (\S+)
+Value NAME (\S+)
+Value IP_ADDRESS (\d+.\d+.\d+.\d+)
+Value SUBNET_MASK (\d+.\d+.\d+.\d+)
+Value METHOD (\w+)
+
+Start
+  ^Current IP Addresses: -> CurrentIPs
+
+CurrentIPs
+  ^${INTERFACE}\s+${NAME}\s+${IP_ADDRESS}\s+${SUBNET_MASK}\s+${METHOD}\s* -> Record

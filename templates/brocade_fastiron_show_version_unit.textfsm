@@ -1,0 +1,25 @@
+Value Key STACK_UNIT (\d+)
+Value IMAGE_LBL (\w+)
+Value FLASH ([a-zA-Z]+)
+Value IMAGE_BIN (\w+\.bin)
+Value UFI (\w+)
+Value Required IMAGE_VER (.+)
+Value BOOTROM_VER (.+)
+Value BOOTROM_LBL (\w+)
+Value Required HW (.+)
+Value MODEL (\S+)
+Value Required SN (\w+)
+Value SW_PKG (\w+)
+Value LICENSE (\w+)
+
+Start
+  ^\s+UNIT\s${STACK_UNIT}:\s.*labeled\sas\s${IMAGE_LBL}
+  ^.*\)\sfrom\s${FLASH}\s${IMAGE_BIN}\s\(${UFI}\)
+  ^.*\)\sfrom\s${FLASH}\s${IMAGE_BIN}
+  ^\s+SW:\sVersion\s${IMAGE_VER}T\d+
+  ^\s+Compressed\s.*Boot.*Version:${BOOTROM_VER}T\d+\s\(${BOOTROM_LBL}\)
+  ^\s+HW:\sStackable\s${HW}
+  ^UNIT\s\d+:\sSL 1:\s${MODEL}
+  ^\s+Serial\s+#:${SN}
+  ^\s+Software\sPackage:\s${SW_PKG}
+  ^\s+Current\sLicense:\s${LICENSE}

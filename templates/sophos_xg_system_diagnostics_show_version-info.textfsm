@@ -1,0 +1,16 @@
+Value SERIAL_NUMBER (\S+)
+Value DEVICE_ID (\S+)
+Value APPLIANCE_MODEL (\S+)
+Value FIRMWARE_VERSION (.+)
+Value FIRMWARE_BUILD (\S+)
+Value FIRMWARE_LOADER (\S+)
+Value HW_VERSION (\S+)
+
+Start
+  ^Serial Number:\s+${SERIAL_NUMBER}
+  ^Device-Id:\s+${DEVICE_ID}
+  ^Appliance Model:\s+${APPLIANCE_MODEL}
+  ^Firmware Version:\s+${FIRMWARE_VERSION}
+  ^Firmware Build:\s+${FIRMWARE_BUILD}
+  ^Firmware Loader version:\s+${FIRMWARE_LOADER}
+  ^HW version:\s+${HW_VERSION}
