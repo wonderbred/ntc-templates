@@ -14,10 +14,12 @@ Start
 
 GetPri
   ^.*Pri\sCode.*,\sVersion:${PRIMARY_VER}T\d+\s\(${PRIMARY_BIN}\) -> GetSec
+  ^.*Pri\sCode.*,\sVersion:${PRIMARY_VER}T\d+ -> GetSec
   ^.*Pri\sCode\sFlash\sEmpty -> GetSec
 
 GetSec
   ^.*Sec\sCode.*,\sVersion:${SECONDARY_VER}T\d+\s\(${SECONDARY_BIN}\) -> GetBoot
+  ^.*Sec\sCode.*,\sVersion:${SECONDARY_VER}T\d+ -> GetBoot
   ^.*Sec\sCode\sFlash\sEmpty -> GetBoot
 
 GetBoot
