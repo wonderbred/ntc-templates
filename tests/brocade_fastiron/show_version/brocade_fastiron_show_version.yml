@@ -102,6 +102,8 @@ parsed_sample:
       - "BASE_SOFT_PACKAGE"
       - "BASE_SOFT_PACKAGE"
       - "BASE_SOFT_PACKAGE"
+    boot_flash: ""
+    boot_flash_measurement: ""
     flash: "65536"
     flash_measurement: "KB"
     ram: "512"

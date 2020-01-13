@@ -1,0 +1,26 @@
+  Copyright (c) 1996-2017 Brocade Communications Systems, Inc. All rights reserved.
+    UNIT 1: compiled on Jul  5 2017 at 18:55:34 labeled as SPS08061
+      (24725960 bytes) from Primary
+        SW: Version 08.0.61T211
+      Compressed Boot-Monitor Image size = 786944, Version:10.1.10T225 (mnz10110)
+       Compiled on Sun Jun 25 09:25:15 2017
+
+  HW: Stackable ICX7150-C12-POE
+==========================================================================
+UNIT 1: SL 1: ICX7150-C12-2X1G POE 12-port Management Module
+      Serial  #:FEK1234ABCD
+      Current License:
+      P-ASIC  0: type B160, rev 11  Chip BCM56160_B0
+==========================================================================
+UNIT 1: SL 2: ICX7150-2X1GC 2-port 2G Module
+==========================================================================
+UNIT 1: SL 3: ICX7150-2X10GF 2-port 20G Module
+==========================================================================
+ 1000 MHz ARM processor ARMv7 88 MHz bus
+ 8192 KB boot flash memory
+ 2048 MB code flash memory
+ 1024 MB DRAM
+STACKID 1  system uptime is 1 day(s) 21 hour(s) 35 minute(s) 35 second(s)
+The system started at 15:15:10 GMT+00 Thu Jan 06 2000
+
+The system : started=cold start

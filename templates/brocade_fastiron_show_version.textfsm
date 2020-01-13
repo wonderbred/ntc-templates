@@ -1,6 +1,8 @@
 Value List SWITCH_ID (\d+)
+Value List SW_FLASH (\S+)
 Value List SW_BIN (\S+)
 Value List SW_VERSION (\S+)
+Value List SW_UFI (\S+)
 Value BOOT_MONITOR_VERSION (.*)
 Value HW (.*)
 Value List SLOT (\d+)
@@ -9,7 +11,10 @@ Value List POE (POE)
 Value List PORTS (\d+)
 Value List MODULE_TYPE (\S+)
 Value List SERIAL (\S+$)
+Value List SOFT_PKG (\S+)
 Value List LICENSE (\S+)
+Value BOOT_FLASH (\d+)
+Value BOOT_FLASH_MEASUREMENT (\S+)
 Value FLASH (\d+)
 Value FLASH_MEASUREMENT (\S+)
 Value RAM (\d+)
@@ -29,9 +34,11 @@ Value RELOAD_REASON (.+?)
 Start
   ^show\s+version
   ^\s+UNIT\s+${SWITCH_ID}
-  ^\s+\(.+?\)\s+from\s+\S+\s+${SW_BIN}\s*$$
+  ^\s+\(.+?\)\s+from\s+${SW_FLASH}(?:\s+${SW_BIN}(?:\s+\(${SW_UFI}\))?)?\s*$$
   ^\s*SW:\s+Version\s+${SW_VERSION}
-  ^\s*Boot-Monitor.*,\s+Version:${BOOT_MONITOR_VERSION}\s*$$
+  ^\s*(?:Compressed\s+)?Boot-Monitor.*,\s+Version:${BOOT_MONITOR_VERSION}\s*$$
+  ^\s*Compressed\s+(?:(Primary|Secondary)\s+)?Boot\s+Code.*,\s+Version:${BOOT_MONITOR_VERSION}\s*$$
+  ^\s*Compiled\s+on
   ^\s*HW:\s+${HW}\s*$$
   ^\s+Copyright
   ^\s*$$
@@ -40,15 +47,18 @@ Start
 
 Hardware
   ^UNIT\s+\d+:\s+SL\s+${SLOT}:\s+${MODEL}\s+(?:${POE}\s+|)${PORTS}(?:-|)port\s+${MODULE_TYPE}\s+Module\s*$$
-  ^\s+Serial\s+#:\s+${SERIAL}\s*$$
-  ^\s+License:\s+${LICENSE}
+  ^\s+Serial\s+#:\s*${SERIAL}\s*$$
+  ^\s+Software\s+Package:\s+${SOFT_PKG}\s*$$
+  ^\s+(?:Current\s+)?License:(?:\s+${LICENSE})?
+  ^.*ASIC
   ^.*ENGINE
   ^=
   ^.+uptime\s+is\s+(?:${UPTIME_DAYS}\s+day\(s\)\s+|)(?:${UPTIME_HOURS}\s+hour\(s\)\s+|)(?:${UPTIME_MINUTES}\s+minute\(s\)\s+|)(?:${UPTIME_SECONDS}\s+second\(s\)|)
-  ^${FLASH}\s+${FLASH_MEASUREMENT}\s+flash
-  ^\s+${RAM}\s+${RAM_MEASUREMENT}.+RAM
+  ^\s*${BOOT_FLASH}\s+${BOOT_FLASH_MEASUREMENT}\s+boot\s+flash
+  ^\s*${FLASH}\s+${FLASH_MEASUREMENT}\s+(?:code\s+)?flash
+  ^\s*${RAM}\s+${RAM_MEASUREMENT}.+RAM
   ^.+started\s+at\s+${START_TIME}\s+${START_TIMEZONE}\s+${START_DAY}\s+${START_MONTH}\s+${START_DATE}\s+${START_YEAR}
-  ^\s+The\s+system\s+:\s+started=${RELOAD_REASON}\s*$$
+  ^\s*The\s+system\s+:\s+started=${RELOAD_REASON}\s*$$
   ^\s*$$
   ^.+processor
   ^My\s+stack

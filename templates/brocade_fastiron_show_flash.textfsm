@@ -1,28 +1,28 @@
 Value Key STACK_UNIT (\d+)
-Value PRIMARY_VER (.+?)
-Value PRIMARY_BIN (.+\.bin)
-Value SECONDARY_VER (.+?)
-Value SECONDARY_BIN (.+\.bin)
-Value BOOTROM_VER (.+?)
-Value PRI_BOOTROM_VER (.+?)
-Value PRI_BOOTROM_LBL (.+?)
-Value SEC_BOOTROM_VER (.+?)
-Value SEC_BOOTROM_LBL (.+?)
+Value PRIMARY_VER (\S+)
+Value PRIMARY_BIN (\S+)
+Value SECONDARY_VER (\S+)
+Value SECONDARY_BIN (\S+)
+Value BOOTROM_VER (\S+)
+Value PRI_BOOTROM_VER (\S+)
+Value PRI_BOOTROM_LBL (\S+)
+Value SEC_BOOTROM_VER (\S+)
+Value SEC_BOOTROM_LBL (\S+)
 
 Start
-  ^Stack\sunit\s${STACK_UNIT}: -> GetPri
+  ^Stack\s+unit\s+${STACK_UNIT}: -> GetPri
 
 GetPri
-  ^.*Pri\sCode.*,\sVersion:${PRIMARY_VER}T\d+\s\(${PRIMARY_BIN}\) -> GetSec
-  ^.*Pri\sCode.*,\sVersion:${PRIMARY_VER}T\d+ -> GetSec
-  ^.*Pri\sCode\sFlash\sEmpty -> GetSec
+  ^.*Pri\s+Code.*,\s+Version:${PRIMARY_VER}\s+\(${PRIMARY_BIN}\) -> GetSec
+  ^.*Pri\s+Code.*,\s+Version:${PRIMARY_VER} -> GetSec
+  ^.*Pri\s+Code\s+Flash\s+Empty -> GetSec
 
 GetSec
-  ^.*Sec\sCode.*,\sVersion:${SECONDARY_VER}T\d+\s\(${SECONDARY_BIN}\) -> GetBoot
-  ^.*Sec\sCode.*,\sVersion:${SECONDARY_VER}T\d+ -> GetBoot
-  ^.*Sec\sCode\sFlash\sEmpty -> GetBoot
+  ^.*Sec\s+Code.*,\s+Version:${SECONDARY_VER}\s+\(${SECONDARY_BIN}\) -> GetBoot
+  ^.*Sec\s+Code.*,\s+Version:${SECONDARY_VER} -> GetBoot
+  ^.*Sec\s+Code\s+Flash\s+Empty -> GetBoot
 
 GetBoot
-  ^.*Boot-Monitor.*,\sVersion:${BOOTROM_VER}T\d+ -> Record Start
-  ^.*Pri\sBoot\sCode.*,\sVersion:${PRI_BOOTROM_VER}T\d+\s\(${PRI_BOOTROM_LBL}\)
-  ^.*Sec\sBoot\sCode.*,\sVersion:${SEC_BOOTROM_VER}T\d+\s\(${SEC_BOOTROM_LBL}\) -> Record Start
+  ^.*Boot-Monitor.*,\s+Version:${BOOTROM_VER} -> Record Start
+  ^.*Pri\s+Boot\s+Code.*,\s+Version:${PRI_BOOTROM_VER}\s+\(${PRI_BOOTROM_LBL}\)
+  ^.*Sec\s+Boot\s+Code.*,\s+Version:${SEC_BOOTROM_VER}\s+\(${SEC_BOOTROM_LBL}\) -> Record Start
