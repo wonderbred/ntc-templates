@@ -1,0 +1,10 @@
+---
+parsed_sample:
+  - direction: "Inbound"
+    connection_id: "1"
+    version: "SSH-2"
+    encryption: "aes256-ctr"
+    username: "admin"
+    hmac: "hmac-sha1"
+    hostkey: "ssh-rsa"
+    ip: "172.22.240.63"

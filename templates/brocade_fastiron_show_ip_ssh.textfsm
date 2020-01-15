@@ -1,0 +1,16 @@
+Value Filldown DIRECTION (\S+)
+Value Required CONNECTION_ID (\d+)
+Value VERSION (\S+)
+Value ENCRYPTION (\S+)
+Value USERNAME (\S+)
+Value HMAC (\S+)
+Value HOSTKEY (\S+)
+Value IP (\S+)
+
+Start
+  ^Connection
+  ^${DIRECTION}:\s*$$
+  ^${CONNECTION_ID}\s+${VERSION}\s+${ENCRYPTION}\s+${USERNAME}\s+${HMAC}\s+\s+${HOSTKEY}\s+${IP}\s*$$ -> Record
+  ^\s*$$ -> NoRecord
+  ^SSH-v
+  ^. -> Error

@@ -1,0 +1,6 @@
+Connection   Version     Encryption          Username          HMAC           Server Hostkey IP Address
+Inbound:
+1            SSH-2       aes256-ctr          admin             hmac-sha1      ssh-rsa        172.22.240.63
+Outbound:
+
+SSH-v2.0 enabled; hostkey: RSA(2048)
