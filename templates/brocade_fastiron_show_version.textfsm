@@ -32,7 +32,6 @@ Value START_YEAR (\d+)
 Value RELOAD_REASON (.+?)
 
 Start
-  ^show\s+version
   ^\s+UNIT\s+${SWITCH_ID}
   ^\s+\(.+?\)\s+from\s+${SW_FLASH}(?:\s+${SW_BIN}(?:\s+\(${SW_UFI}\))?)?\s*$$
   ^\s*SW:\s+Version\s+${SW_VERSION}
@@ -40,7 +39,7 @@ Start
   ^\s*Compressed\s+(?:(Primary|Secondary)\s+)?Boot\s+Code.*,\s+Version:${BOOT_MONITOR_VERSION}\s*$$
   ^\s*Compiled\s+on
   ^\s*HW:\s+${HW}\s*$$
-  ^\s+Copyright
+  ^\s*Copyright
   ^\s*$$
   ^=+\s*$$ -> Hardware
   ^. -> Error
@@ -48,7 +47,7 @@ Start
 Hardware
   ^UNIT\s+\d+:\s+SL\s+${SLOT}:\s+${MODEL}\s+(?:${POE}\s+|)${PORTS}(?:-|)port\s+${MODULE_TYPE}\s+Module\s*$$
   ^\s+Serial\s+#:\s*${SERIAL}\s*$$
-  ^\s+Software\s+Package:\s+${SOFT_PKG}\s*$$
+  ^\s+Software\s+Package:\s+${SOFT_PKG}\s*(?:\(.*\))?\s*$$
   ^\s+(?:Current\s+)?License:(?:\s+${LICENSE})?
   ^.*ASIC
   ^.*ENGINE
