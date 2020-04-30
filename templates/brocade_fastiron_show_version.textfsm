@@ -40,6 +40,8 @@ Start
   ^\s*Compiled\s+on
   ^\s*HW:\s+${HW}\s*$$
   ^\s*Copyright
+  ^\s*Internal USB:
+  ^\s*Vendor:
   ^\s*$$
   ^=+\s*$$ -> Hardware
   ^. -> Error
